@@ -1,12 +1,15 @@
-from main import WordPressPluginManager
+from pathlib import Path
+import os
+import map as sites
+from ftp import FTPUploader, ZipExtractor
+from dotenv import load_dotenv
 
-plugin_name = 'Akismet'
-plugin_manager = WordPressPluginManager()
-plugin_manager.delete_plugin(name=plugin_name)
-plugin_manager.check_plugin(name=plugin_name)
+load_dotenv()
 
-# Fazendo o upload de um novo arquivo zip com a versão atualizada do plugin
-# plugin_manager.upload_new_version("caminho_para_o_arquivo_zip")
-
-# Ativando o plugin Akismet
-# plugin_manager.activate_akismet_plugin()
+"""
+Extract the zip file and upload the files to the FTP server
+"""
+ZipExtractor.extract(os.getenv("ZIP_FILE_PATH"),os.getenv("ZIP_EXTRACT_FOLDER"))
+for site in sites.map:
+    ftp_uploader = FTPUploader(host=sites.map[site]["host"], username=sites.map[site]["username"])
+    ftp_uploader.upload(Path(__file__).parent.resolve() / os.getenv("ZIP_EXTRACT_FOLDER"), 'plugins')
