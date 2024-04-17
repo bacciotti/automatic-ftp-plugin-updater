@@ -10,7 +10,7 @@ This Python script automates the process of updating a WordPress plugin across m
 2. **Clone This Repository:**
    - Clone this repository to your local machine.
 
-```git clone https://github.com/your-username/your-repository.git```
+```git clone https://github.com/bacciotti/automatic-ftp-plugin-updater.git```
 
 
 3. **Rename and Configure Environment Variables:**
@@ -27,16 +27,16 @@ This Python script automates the process of updating a WordPress plugin across m
 
 ## Additional Information
 
-- **Virtual Environment:**
+**Virtual Environment:**
 - It's recommended to use `pipenv` as a virtual environment to run the script.
 
-- **Python Version:**
+**Python Version:**
 - This script is developed using Python 3.12 and has not been tested on other versions.
 
-- **Process Speed:**
+**Process Speed:**
 - Unfortunately, the process may be slow due to FTP transmission. It's advisable to let the script run and monitor the log.
 
-- **Contributions:**
+**Contributions:**
 - Pull requests (PRs) and issues are welcomed for improvements and bug fixes.
 
 Feel free to customize and enhance the script according to your specific requirements. Happy updating!
